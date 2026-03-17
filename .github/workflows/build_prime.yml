@@ -92,7 +92,9 @@ jobs:
         uses: actions/upload-artifact@v5
         with:
           name: PrimeKernel-${{ matrix.device.name }}-${{ needs.prepare.outputs.release_ts }}
-          path: AnyKernel3/
+          path: |
+            AnyKernel3/
+            images/
 
       - name: Upload release notes
         if: matrix.device.name == 'r8q'
@@ -112,6 +114,11 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           path: artifacts/
+
+      - name: Move boot.img and dtbo.img
+        run: |
+          mv artifacts/boot.img boot.img
+          mv artifacts/dtbo.img dtbo.img
 
       - name: Zip build artifacts
         run: |
@@ -135,6 +142,9 @@ jobs:
           body_path: version.txt
           tag_name: "${{ needs.prepare.outputs.release_ts }}"
           name: "PrimeKernel-${{ needs.prepare.outputs.release_ts }}"
-          files: artifacts/*.zip
+          files: |
+            artifacts/*.zip
+            boot.img
+            dtbo.img
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
