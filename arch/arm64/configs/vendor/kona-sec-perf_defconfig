@@ -898,3 +898,24 @@ CONFIG_BUG_ON_DATA_CORRUPTION=y
 CONFIG_DEBUG_ALIGN_RODATA=y
 CONFIG_SEC_PM_DEBUG=y
 CONFIG_TECHPACK_CAMERA_SAMSUNG=y
+# Performance optimizations
+# CONFIG_DEBUG_PREEMPT is not set
+# CONFIG_LOCKDEP is not set
+# CONFIG_FUNCTION_TRACER is not set
+# CONFIG_IRQSOFF_TRACER is not set
+CONFIG_MQ_IOSCHED_DEADLINE=y
+CONFIG_BLK_WBT=y
+CONFIG_ZRAM_DEF_COMP="lz4"
+CONFIG_HZ_300=y
+
+# Restore SchedTune — removed by Samsung but safe to re-enable
+CONFIG_SCHED_TUNE=y
+
+# TCP BBR — much better for gaming and streaming than Cubic
+CONFIG_TCP_CONG_BBR=y
+CONFIG_DEFAULT_TCP_CONG="bbr"
+CONFIG_NET_SCH_FQ=y
+
+# Scheduler — make sure these are explicit
+CONFIG_SCHED_WALT=y
+CONFIG_SCHED_SEC_TASK_BOOST=y
