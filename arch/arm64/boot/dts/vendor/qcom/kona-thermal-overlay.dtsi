@@ -43,7 +43,7 @@
 
 			vbat_gpu0 {
 				trip = <&b_bcl_lvl0>;
-				cooling-device = <&msm_gpu 2 2>;
+				cooling-device = <&msm_gpu 1 2>;
 			};
 		};
 	};

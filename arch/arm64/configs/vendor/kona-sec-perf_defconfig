@@ -919,3 +919,40 @@ CONFIG_NET_SCH_FQ=y
 # Scheduler — make sure these are explicit
 CONFIG_SCHED_WALT=y
 CONFIG_SCHED_SEC_TASK_BOOST=y
+
+# Multi-Gen LRU — much better memory reclaim under One UI multitasking
+CONFIG_LRU_GEN=y
+CONFIG_LRU_GEN_ENABLED=y
+
+# PELT improvements — better task load tracking
+CONFIG_PELT_UTIL_HALFLIFE_16=y
+CONFIG_PELT_COMPATIBILITY_LAYER=y
+
+# RCU lazy — reduces wakeups for better battery
+CONFIG_RCU_LAZY=y
+
+# UCLAMP improvements
+CONFIG_UCLAMP_BUCKETS_COUNT=20
+CONFIG_UCLAMP_ASSIST=y
+
+# CPU idle governor — TEO is better than menu for mobile
+CONFIG_CPU_IDLE_GOV_TEO=y
+
+# CPUSET assist — proper cgroup CPU affinity for One UI
+CONFIG_CPUSET_ASSIST=y
+CONFIG_CPUSET_AUDIO_APP="0-3"
+CONFIG_CPUSET_BG="0-3"
+CONFIG_CPUSET_CAMERA="0-7"
+CONFIG_CPUSET_DISPLAY="0-6"
+CONFIG_CPUSET_FG="0-6"
+CONFIG_CPUSET_RESTRICTED="0-3"
+CONFIG_CPUSET_SYSTEM_BG="0-3"
+CONFIG_CPUSET_TOP_APP="0-7"
+
+# Memory
+CONFIG_MEMCG_SWAP_ENABLED=y
+CONFIG_MEMCG_FORCE_USE_VM_SWAPPINESS=y
+CONFIG_MEMCG_KMEM=y
+
+# RT softirq scheduling
+CONFIG_RT_SOFTIRQ_AWARE_SCHED=y
